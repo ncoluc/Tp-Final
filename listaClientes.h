@@ -27,27 +27,14 @@ static void mostrarDatosCliente(Cliente *cliente){
 }
 
 
-Cliente* crearCliente(Cliente *conocido){
+Cliente* crearCliente(char nombre[], char apellido[], int dni, int edad,Cliente *conocido){
 
     Cliente clienteNuevo;
 
-    char nombreCliente[50];
-    char apellidoCliente[50];
-
-    printf("Nombre: ");
-    scanf("%s", nombreCliente);
-    strcpy(clienteNuevo.nombre, nombreCliente);
-
-    printf("Apellido: ");
-    scanf("%s", apellidoCliente);
-    strcpy(clienteNuevo.apellido, apellidoCliente);
-
-    printf("DNI: ");
-    scanf("%d", &clienteNuevo.dni);
-
-    printf("Edad: ");
-    scanf("%d", &clienteNuevo.edad);
-
+    strcpy(clienteNuevo.apellido, nombre);
+    strcpy(clienteNuevo.apellido, apellido);
+    clienteNuevo.dni = dni;
+    clienteNuevo.edad = edad;
     clienteNuevo.idCredito = -1;
     clienteNuevo.credito = NULL;
     clienteNuevo.siguiente = NULL;

@@ -84,16 +84,30 @@ void conexionEntreClientes(Cliente *cliente1, Cliente *cliente2){
 
 void altaCliente(){
     Cliente nuevoCliente;
+
+    char nombreCliente[50];
+    char apellidoCliente[50];
+    int dni;
+    int edad;
+
+    printf("Nombre: ");
+    scanf("%s", nombreCliente);
+    printf("Apellido: ");
+    scanf("%s", apellidoCliente);
+    printf("DNI: ");
+    scanf("%d", &dni);
+    printf("Edad: ");
+    scanf("%d", &edad);
+
     printf("Alguna persona que conozcas ya es cliente y te recomendo nuestro Banco?\n*1 - SI\n*2 - NO\n");
     int decision;
     scanf("%d", &decision);
-
     if(decision == 1){
         Cliente *conocido = buscarClientePorNombre();
-        nuevoCliente = crearCliente(conocido);
+        nuevoCliente = crearCliente(nombreCliente, apellidoCliente, dni, edad, conocido);
         agregar_cliente(listaClientesPorApellido[calcularPosicionConApellido(nuevoCliente.apellido)], &nuevoCliente);
     }else if(decision == 2){
-        nuevoCliente = crearCliente(NULL);
+        nuevoCliente = crearCliente(nombreCliente, apellidoCliente, dni, edad, NULL);
         agregar_cliente(listaClientesPorApellido[calcularPosicionConApellido(nuevoCliente.apellido)], &nuevoCliente);
     }else{
         printf("Ingrese una opcion valida\n");
